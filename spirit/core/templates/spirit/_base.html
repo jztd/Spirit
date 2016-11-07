@@ -1,48 +1,44 @@
-{% load spirit_tags i18n %}
-{% load static from staticfiles %}
-<!doctype html>
-<html>
-  <head>
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>{% block title %}{% endblock %} - {{ config.site_name }}</title>
-    <meta name="description" content="{{ config.site_description }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aipact Forums</title>
+<link rel="stylesheet" href="Aipact%20Forums_files/styles.css">
 
-    <link rel="stylesheet" href="{% static "spirit/stylesheets/styles.all.min.css" %}">
+    <link rel="stylesheet" href="Aipact%20Forums_files/jquery-ui.css">
 
-    <script src="{% static "spirit/scripts/all.min.js" %}"></script>
+    <script src="Aipact%20Forums_files/jquery.js"></script>
+    <script src="Aipact%20Forums_files/bootstrap.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="Aipact%20Forums_files/jquery-ui.js"></script>
+    
+
+    <link rel="stylesheet" type="text/css" href="Aipact%20Forums_files/bootstrap-theme.html">
+    <link rel="stylesheet" type="text/css" href="Aipact%20Forums_files/main.html">
+
+
+    <script src="Aipact%20Forums_files/all.js"></script>
 
     <script>
 
-	$( document ).ready(function() {
+    $( document ).ready(function() {
 
         $.tab();
 
         $( 'a.js-post' ).postify( {
-            csrfToken: "{{ csrf_token }}",
+            csrfToken: "0kBXw4xynADdQ3juEnVzumAVD5kHp4Wg",
         } );
 
         $('.js-messages').messages();
 
-        {% if user.is_authenticated %}
-            $.notification( {
-                notificationUrl: "{% url "spirit:topic:notification:index-ajax" %}",
-                notificationListUrl: "{% url "spirit:topic:notification:index-unread" %}",
-                mentionTxt: "{% trans "{user} has mention you on {topic}" %}",
-                commentTxt: "{% trans "{user} has commented on {topic}" %}",
-                showAll: "{% trans "Show all" %}",
-                empty: "{% trans "No new notifications, yet" %}",
-                unread: "{% trans "unread" %}",
-            } );
-        {% endif %}
+        
 
-	});
+    });
 
-	</script>
+    </script>
 
-    {% block head-extra %}{% endblock %}
+    
 
     <!--[if (lt IE 9) & (!IEMobile)]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
@@ -51,13 +47,139 @@
 
   </head>
 
-  <body>
+<body>
+<div id="overlay" style="background-color: #000"> </div>
 
-    {% include 'spirit/_header.html' %}
-    {% render_messages messages %}
-    {% block content %}{% endblock %}
-    {% include 'spirit/_footer.html' %}
+  <nav class="navbar" style="background-color:#fcfcfc; border-bottom: 1px solid black; max-height: 100px;min-height: 100px; height: 100px;" role="navigation">
+    
+    <div class="navbar-header" style="background-color: #5E6A71; padding-right:25px; padding-left:25px;height:98px;">
+      <a href="#" class="navbar-left" style="background-color: #5E6A71;"> <img class="img-responsive" style="height:90px; padding-  top:5px;" src="Aipact%20Forums_files/apflogo.html"> </a>
+    
+   </div>
+     <p class="navbar-text" style=""></p><h1><strong> AIRPACT Fire - Forums</strong></h1> <p></p>
 
-  </body>
 
-</html>
+  </nav>
+
+<div class="container-fluid">
+    <nav class="col-md-1 col-md-offset-2 col-lg-1 col-lg-offset-2 nav ">
+        <div class="text-right" style="">
+<!--            <img class="img-responsive" src="/static/media/decoration/logo.png"/>
+            <span class="icon-bar"></span> -->
+            <ul class="nav">
+                <li><a href="http://localhost:8000/"> Home </a> </li>
+                <li><a href="http://localhost:8000/gallery/"> Gallery </a></li>
+                <li><a href="http://localhost:8000/file_upload/"> Upload</a></li>
+                <li><a href="http://localhost:8000/downloads/"> Downloads </a></li>
+                <li><a href="http://localhost:8000/about/"> About </a></li>
+                
+            </ul>
+        </div>
+    </nav>
+    <div class="col-md-9 col-lg-9 content" style="background-color: #FFF; padding-top:25px; padding-bottom:25px;">
+    </div>
+</div>
+
+
+    
+
+    <header class="header js-tabs-container">
+        <a class="header-logo" href="http://localhost:8000/forum/"></a>
+
+        
+            <a class="header-link" href="http://localhost:8000/forum/user/login/?next=/forum/">Log in</a>
+        
+    </header>
+    
+
+
+    
+    
+
+    
+
+    <div class="container">
+        <div class="categories js-tabs-container">
+            
+                <a class="dropdown-button js-tab" href="#" data-related=".js-categories-content">All Categories <i class="fa fa-chevron-down"></i></a>
+            
+
+            <div class="tab-content js-tab-content js-categories-content">
+                <ul class="menu">
+                    
+                        <li><a class="menu-link" href="http://localhost:8000/forum/category/2/uncategorized/">Uncategorized</a></li>
+                    
+                    
+                        <li><a class="menu-link" href="http://localhost:8000/forum/topic/active/">All Categories</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        <div class="new-topic">
+            
+                <a class="button" href="http://localhost:8000/forum/topic/publish/">Create Topic</a>
+            
+        </div>
+    </div>
+
+    
+
+
+        <div class="rows">
+
+        
+            <div class="row">
+
+                <div class="row-title">
+                    
+                    
+
+                    <a class="row-link" href="http://localhost:8000/forum/topic/1/this-is-a-test/">THIS IS A TEST</a>
+                </div>
+                <div class="row-info">
+                    <div>
+                        
+                            
+                                <a href="http://localhost:8000/forum/category/2/uncategorized/">Uncategorized</a>
+                            
+                        
+                    </div><!--
+                 --><div><i class="fa fa-comment"></i> 2</div><!--
+                 --><div title="Oct. 12, 2016, 8:50 p.m."><i class="fa fa-clock-o"></i> 12 Oct</div>
+                </div>
+
+            </div>
+        
+
+        </div>
+
+<script>
+    $(document).ready(function() {
+        // .is_new depends on js (bookmarks)
+        $('.js-comment-is-new').addClass('is-new');
+    });
+</script>
+
+
+    
+
+<ul class="paginator">
+    
+        <li class="paginator-pages">Page 1 of 1</li>
+    
+</ul>
+
+
+    
+
+    <footer class="footer">
+        <div class="footer-container">
+            <a class="footer-logo" href="http://www.spirit-project.com/">Spirit</a>
+        </div>
+    </footer>
+
+  
+
+
+</body></html>
